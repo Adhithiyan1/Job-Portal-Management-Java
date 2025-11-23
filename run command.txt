@@ -1,0 +1,10 @@
+cd "D:\BCG - persnol\LPU\Notes\Sem3\CAP 392\Jop Potal\src"
+
+# Compile
+javac -cp ".;..\lib\mysql-connector-j-8.0.33.jar" com/jobportal/model/*.java
+javac -cp ".;..\lib\mysql-connector-j-8.0.33.jar" com/jobportal/util/*.java
+javac -cp ".;..\lib\mysql-connector-j-8.0.33.jar" com/jobportal/dao/*.java
+javac -cp ".;..\lib\mysql-connector-j-8.0.33.jar" com/jobportal/Main.java
+
+# Run
+java -cp ".;..\lib\mysql-connector-j-8.0.33.jar" com.jobportal.Main
