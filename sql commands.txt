@@ -1,0 +1,31 @@
+CREATE TABLE users (
+  userid INT AUTO_INCREMENT PRIMARY KEY,
+  role VARCHAR(20) NOT NULL, 
+  name VARCHAR(100) NOT NULL,
+  address VARCHAR(255),
+  email VARCHAR(100) UNIQUE NOT NULL,
+  phone VARCHAR(20),
+  password VARCHAR(100) NOT NULL,
+  extra_json TEXT
+);
+
+CREATE TABLE jobs (
+  jobid INT AUTO_INCREMENT PRIMARY KEY,
+  employer_id INT NOT NULL,
+  title VARCHAR(150) NOT NULL,
+  jd TEXT,
+  pay VARCHAR(50),
+  type VARCHAR(20), 
+  FOREIGN KEY (employer_id) REFERENCES users(userid)
+);
+
+CREATE TABLE applications (
+  appid INT AUTO_INCREMENT PRIMARY KEY,
+  jobid INT NOT NULL,
+  seeker_id INT NOT NULL,
+  resume_path VARCHAR(255),
+  stage VARCHAR(50) DEFAULT 'APPLIED', 
+  applied_on TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (jobid) REFERENCES jobs(jobid),
+  FOREIGN KEY (seeker_id) REFERENCES users(userid)
+);
